@@ -46,10 +46,8 @@ function playRound(humanInput , computerInput){
 }
 
 function playGame(){
-    for(let a = 1; a<=5 ; a++){
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-    }
-
+ 
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
     if(humanScore === computerScore){
         return "THE GAME IS A TIE";
     }else if(humanScore > computerScore){
