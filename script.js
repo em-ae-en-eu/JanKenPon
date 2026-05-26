@@ -1,6 +1,16 @@
 console.log('hello world');
 
 
+let b1 = document.getElementById('btn-rock');
+let b2 = document.getElementById('btn-paper');
+let b3 = document.getElementById('btn-scissors');
+
+
+
+let d1 = document.getElementById('result');
+let d2 = document.getElementById('score');
+let d3 = document.getElementById('winner');
+
 
 let humanScore = 0;
 let computerScore = 0;
@@ -46,8 +56,10 @@ function playRound(humanInput , computerInput){
 }
 
 function playGame(){
- 
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
+    for(let a = 1; a<=5 ; a++){
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+    }
+
     if(humanScore === computerScore){
         return "THE GAME IS A TIE";
     }else if(humanScore > computerScore){
