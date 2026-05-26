@@ -1,6 +1,3 @@
-console.log('hello world');
-
-
 let b1 = document.getElementById('btn-rock');
 let b2 = document.getElementById('btn-paper');
 let b3 = document.getElementById('btn-scissors');
@@ -11,6 +8,35 @@ let d1 = document.getElementById('result');
 let d2 = document.getElementById('score');
 let d3 = document.getElementById('winner');
 
+b1.addEventListener('click' , () =>{
+   d1.textContent = playRound('rock', getComputerChoice());
+   d2.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+   winnerBlock();
+}) 
+b2.addEventListener('click' , () =>{
+  d1.textContent = playRound('paper', getComputerChoice());
+  d2.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+  winnerBlock();
+}) 
+b3.addEventListener('click' , () =>{
+   d1.textContent = playRound('scissors', getComputerChoice());
+   d2.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+    winnerBlock();
+}) 
+
+function winnerBlock(){
+    if(humanScore == 5){
+        d3.textContent = "Human Wins the game";
+        b1.disabled  = true;
+        b2.disabled  = true;
+        b3.disabled  = true;
+      }else if(computerScore == 5){
+        d3.textContent = "Computer wins the game";
+        b1.disabled  = true;
+        b2.disabled  = true;
+        b3.disabled  = true;
+      }
+}
 
 let humanScore = 0;
 let computerScore = 0;
@@ -27,12 +53,6 @@ function getComputerChoice(){
     return 'scissors';
   }
 
-}
-
-function getHumanChoice(){
-    let input = prompt('Enter your Input: rock or paper or scissors');
-    return input.toLowerCase();
-    
 }
 
 function playRound(humanInput , computerInput){
@@ -54,19 +74,3 @@ function playRound(humanInput , computerInput){
     }
 
 }
-
-function playGame(){
-    for(let a = 1; a<=5 ; a++){
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-    }
-
-    if(humanScore === computerScore){
-        return "THE GAME IS A TIE";
-    }else if(humanScore > computerScore){
-        return "HUMAN WINS THE GAME";
-    }else{
-        return "COMPUTER WINS THE GAME";
-    }
-}
-
-console.log(playGame());
